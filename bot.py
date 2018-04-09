@@ -15,8 +15,8 @@ import aiohttp
 from collections                import Counter
 
 
-command_prefix = "~" 
-description = "A super cute bot for the best girl ever"
+command_prefix = "e" 
+description = "A bot for a little erp server"
 bot = commands.Bot(command_prefix, description = description)
 bot.remove_command('help')
 tu = datetime.datetime.now()
@@ -28,15 +28,6 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-
-@bot.event
-async def on_member_join(ctx):
-	member = discord.Member
-	welcome = bot.get_channel(429820948485767168)
-	
-	embed = discord.Embed(colour = discord.Colour(0xA522B3))
-	embed.description = f"Welcome to the server **{member}**! It's nowhere near done and still being set up. You have __24 hours__ to say **`Hai`** or **`Bai`** to access to the server.\nAlso, please read pinned messages."
-	await ctx.send(embed = embed)
 
 #########################################
 
@@ -53,19 +44,19 @@ async def help(ctx):
 	embed = discord.Embed(colour = discord.Colour(0xA522B3))
 	embed.set_thumbnail(url = avi)
 	embed.set_author(name = developer, icon_url = avi)
-	embed.description = f"Hi everyone!~♡ I'm **{developer.name}**, the creator of **Emilia Walker** \nThis BOT is for now developed in **Python** by my unique owner: {developer}. \nI started making it after showing my girlfriend that I know how to make them \nbecause she wanted me to make a BOT for her."
-	embed.add_field(name="Having Issues/Problems?", value=f"If you have any problems with **Emilia Walker**,\nthen you can use the feedback command to DM my owner: `{command_prefix}ctdev [message]` !", inline=False)
+	embed.description = f"Hi everyone!~♡ I'm **{developer.name}**, the creator of **AbsoluteBot** \nThis BOT is for now developed in **Python** by my unique owner: {developer}. \nI started making it for a little new erp server because the owners were nice so..\nLittle gift! ^-^"
+	embed.add_field(name="Having Issues/Problems?", value=f"If you have any problems with **AbsoluteBot**,\nthen you can use the feedback command to DM my owner: `{command_prefix}ctdev [message]` !", inline=False)
 
 	help1 = discord.Embed(colour = discord.Colour(0xA522B3))
-	help1.title = f"Emilia Walker  Commands List~♡"
-	help1.description = f"**Emilia Walker**'s prefix is **{command_prefix}**.\nNeed more informations about a command? `{command_prefix}help [command]`\n\n"
+	help1.title = f"AbsoluteBot  Commands List~♡"
+	help1.description = f"**AbsoluteBot**'s prefix is **{command_prefix}**.\nNeed more informations about a command? `{command_prefix}help [command]`\n\n"
 	help1.add_field(name="Core Commands", value=f"`{command_prefix}help` **|** `{command_prefix}shutdown` **|** `{command_prefix}game`", inline=False)
 	help1.add_field(name="Utility Commands", value=f"`{command_prefix}ping` **|** `{command_prefix}profile` **|** `{command_prefix}about` **|** `{command_prefix}stats` **|** `{command_prefix}avatar` **|** `{command_prefix}guildicon`", inline=False)
 	help1.add_field(name="Fun Commands", value=f"`{command_prefix}lovecalc` **|** `{command_prefix}vhug`", inline=False)
 	help1.add_field(name="Kawaii Commands", value=f"`{command_prefix}cute`", inline=False)
-	help1.add_field(name="Extra Commands", value=f"`{command_prefix}ctdev` **|** `{command_prefix}xmas` **|** `{command_prefix}creation` **|** `{command_prefix}couple`", inline=False)
-	help1.set_footer(text = "Have fun using Emilia Walker~♡")
-	#help1.description = f"**Emilia Walker** <:bot:389862148395761664>'s prefix is **s**. If the Server Owner changed it, \nYou can use `@Emilia Walker prefix` to get the prefixes list! \nNeed more informations about a command? `shelp [command]`\n\n"
+	help1.add_field(name="Extra Commands", value=f"`{command_prefix}ctdev` **|** `{command_prefix}xmas` **|** `{command_prefix}creation`", inline=False)
+	help1.set_footer(text = "Have fun using AbsoluteBot~♡")
+	#help1.description = f"**AbsoluteBot** <:bot:389862148395761664>'s prefix is **e**. If the Server Owner changed it, \nYou can use `@AbsoluteBot prefix` to get the prefixes list! \nNeed more informations about a command? `ehelp [command]`\n\n"
 
 	await ctx.send(embed = embed)
 	await ctx.send(embed = help1)
@@ -99,7 +90,7 @@ async def shutdown(ctx):
 
 			developer = bot.get_user(385419569558323202)
 			shutdown1 = discord.Embed(colour = discord.Colour(0xA522B3))
-			shutdown1.description = f"**Emilia Walker** has been **Shutdown For Maintenance** by ***{developer.name}*** !"
+			shutdown1.description = f"**AbsoluteBot** has been **Shutdown For Maintenance** by ***{developer.name}*** !"
 			shutdown1.set_footer(text = time.strftime("%d/%m/%Y - %I:%M:%S %p"))
 
 			await ctx.send(embed = shutdown1)
@@ -177,28 +168,6 @@ async def botcreation(ctx):
 	minutes, seconds=divmod(remainder3, 60)
 	embed=discord.Embed(colour = discord.Colour(0xA522B3))
 	embed.add_field(name=":question::question::question: Time left until __Bot Creation's Birthday__ :question::question::question:",
-		value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
-	await ctx.send(embed=embed)
-
-@bot.command(aliases=["couple", "presti", "emilia", "emi", "prestixemilia", "prestixemi"])
-async def prestiemilia(ctx):
-	presti = bot.get_user(385419569558323202)
-	emilia = bot.get_user(180849535306694656)
-	now=datetime.datetime.utcnow()
-	xmas=datetime.datetime(now.year, 3, 31)
-	if xmas<now:
-		xmas=xmas.replace(year=now.year+1)
-		embed=discord.Embed(colour = discord.Colour(0xA522B3))
-		embed.add_field(name=":question::question::question: Couple Love :question::question::question:",
-			value=f"{now.year-2018} years ago, **{presti.name}** & **{emilia.name}** became a couple! @everyone")
-		await ctx.send(embed=embed)
-	delta=xmas-now
-	weeks, remainder=divmod(int(delta.total_seconds()), 604800)
-	days, remainder2=divmod(remainder, 86400)
-	hours, remainder3=divmod(remainder2, 3600)
-	minutes, seconds=divmod(remainder3, 60)
-	embed=discord.Embed(colour = discord.Colour(0xA522B3))
-	embed.add_field(name=":question::question::question: Time left until __Couple Birthday__ :question::question::question:",
 		value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
 	await ctx.send(embed=embed)
 
